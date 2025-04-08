@@ -1,0 +1,55 @@
+import React, { Component } from 'react';
+import { View, Text, StyleSheet, Button } from 'react-native';
+
+class App extends Component{
+
+  constructor(props){
+    super(props);
+    this.state = {
+      nome : 'Etec City of Book',
+      novotexto : '...'
+    }
+    this.setarTexto = this.setarTexto.bind(this);
+  }
+
+  setarTexto(){
+    this.setState({ novotexto : 'Esse é o novo texto' });
+  }
+
+  render(){
+  return(
+    <View style={estilos.principal}>
+      <Text style={estilos.texto01}>
+        ETEC CIDADE DO LIVRO
+      </Text>
+      <Text style={estilos.texto01}>
+      {this.state.nome}
+      </Text>
+
+      <Button
+      title = "Mostrar Novo Texto"
+      onPress = {this.setarTexto}
+      />
+
+      <Text style={estilos.texto01}>
+      {this.state.novotexto}
+      </Text>
+
+    </View>
+  );
+  }
+}
+
+const estilos = StyleSheet.create({
+  principal:{
+    marginTop: 20,
+  },
+
+  texto01:{
+    fontSize: 23,
+    color: 'red',
+    textAlign: 'center'
+  }
+});
+
+export default App;
